@@ -5,7 +5,13 @@ class Hamming
             raise ArgumentError, 'strand lengths not equal'
         end
 
-        compareTo.chars.zip(compareWith.chars).count do |charTo, charWith|
+        calculateHamming(compareTo, compareWith)
+    end
+
+    private 
+
+    def self.calculateHamming(to, with)
+        to.chars.zip(with.chars).count do |charTo, charWith|
             charTo != charWith
         end
     end
